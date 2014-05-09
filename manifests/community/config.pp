@@ -11,7 +11,7 @@ class wakanda::community::config {
     target => "/opt/wakanda/bin/wakanda",
   }
   
-  file { "/etc/init/wakanda":
+  file { "/etc/init/wakanda.conf":
     ensure => present,
     source => "puppet:///modules/wakanda/wakanda.conf",
   }

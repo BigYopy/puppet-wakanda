@@ -40,13 +40,13 @@ $arch=$::architecture ? {
        
        $wakanda_dir="/opt/wakanda-enterprise"
        $download_url="http://download.wakanda.org/ProductionChannel/v${wakanda_version}/Wakanda-Enterprise/Linux/${wakanda_build}/wakanda-enterprise_${wakanda_version}.0-${wakanda_build}_${arch}.tgz"
-       include ::wakanda::enterprise  
+       include wakanda::enterprise  
      
      }else {
        
        $wakanda_dir="/opt/wakanda"
-       $download_url="http://download.wakanda.org/ProductionChannel/v${wakanda_version}/Wakanda-Enterprise/Linux/${wakanda_build}/wakanda-enterprise_${wakanda_version}.0-${wakanda_build}_${arch}.tgz"
-       include ::wakanda::community
+       $download_url="http://download.wakanda.org/ProductionChannel/v${wakanda_version}/Wakanda/Linux/${wakanda_build}/wakanda_${wakanda_version}.0-${wakanda_build}_${arch}.tgz"
+       include wakanda::community
        
      }
     }

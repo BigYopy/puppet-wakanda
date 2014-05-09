@@ -13,7 +13,7 @@ class wakanda::community::install {
   #download wakanda   
   exec { "get_wakanda":
     command => "wget ${wakanda::download_url}",
-    creates => "wakanda_${wakanda::wakanda_version}.0-${wakanda::wakanda_build}_${wakanda::arch}.tgz",
+    creates => "/opt/wakanda_${wakanda::wakanda_version}.0-${wakanda::wakanda_build}_${wakanda::arch}.tgz",
     }
    
   #Extract wakanda tgz
