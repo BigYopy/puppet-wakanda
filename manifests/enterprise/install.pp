@@ -10,13 +10,13 @@ class wakanda::enterprise::install {
     ensure => present,
   }
   
-  #download wakanda   
+  #Download wakanda   
   exec { "get_wakanda":
     command => "wget ${wakanda::download_url}",
     creates => "/opt/wakanda-enterprise_${wakanda::wakanda_version}.0-${wakanda::wakanda_build}_${wakanda::arch}.tgz",
     }
    
-  #Extract wakanda tgz
+  # Extract wakanda tgz
   exec {"install_wakanda":
     command => "tar xvzf wakanda-enterprise_${wakanda::wakanda_version}.0-${wakanda::wakanda_build}_${wakanda::arch}.tgz -C /opt",
     creates => $wakanda::wakanda_dir,
