@@ -14,13 +14,12 @@
 
 class wakanda (
  $enterprise=false,
- $build_number=undef,
+ $build_number="8.160602",
  $admin_port=8080,
  $admin_ssl_port=4443,
  $solution_path="",
  $admin_password=undef,
  $debugger='none'
-
 ) {
  
 $wakanda_version = regsubst($build_number,'^(\d+)\.(\d+)$','\1')
