@@ -13,7 +13,6 @@
 
 
 class wakanda (
-
  $enterprise=false,
  $build_number=undef,
  $admin_port=8080,
@@ -40,13 +39,11 @@ $arch=$::architecture ? {
        
        $wakanda_dir="/opt/wakanda-enterprise"
        $download_url="http://download.wakanda.org/ProductionChannel/v${wakanda_version}/Wakanda-Enterprise/Linux/${wakanda_build}/wakanda-enterprise_${wakanda_version}.0-${wakanda_build}_${arch}.tgz"
-       include wakanda::enterprise  
-     
+ 
      }else {
        
        $wakanda_dir="/opt/wakanda"
        $download_url="http://download.wakanda.org/ProductionChannel/v${wakanda_version}/Wakanda/Linux/${wakanda_build}/wakanda_${wakanda_version}.0-${wakanda_build}_${arch}.tgz"
-       include wakanda::community
        
      }
     }
@@ -55,6 +52,9 @@ $arch=$::architecture ? {
            for \"${::kernel}\"")
     }
    }
-  
+ class { 'wakanda::linux':
+    url => $download_url,
+    wakanda_home => $wakanda_dir,
+  }  
 
 }

@@ -1,5 +1,5 @@
-class wakanda::community::config {
-  require wakanda::community::install
+class wakanda::linux::config {
+  require wakanda::linux::install
   
   #wakanda default file
   file { "/etc/default/wakanda":
@@ -10,7 +10,7 @@ class wakanda::community::config {
   # create a link to wakanda bin
   file {"/usr/local/bin/wakanda":
     ensure => link,
-    target => "/opt/wakanda/bin/wakanda",
+    target => "${wakanda::wakanda_dir}/bin/wakanda",
   }
   
   # wakanda upstart job
