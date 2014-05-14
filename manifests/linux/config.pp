@@ -9,7 +9,7 @@ class wakanda::linux::config {
     true => 'wakandaenterprise',
     default => wakanda,
   }
-  ###################################################
+  ###############################################################
   
   #wakanda default file
   file { "/etc/default/wakanda":
